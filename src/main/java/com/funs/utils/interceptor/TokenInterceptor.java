@@ -50,7 +50,7 @@ public class TokenInterceptor implements HandlerInterceptor {
         if (null != cookie) {
             //验证token是否正确
             boolean result = JwtUtil.verify(cookie.getValue());
-            System.out.println(JwtUtil.getUsername(cookie.getValue()+"通过认证"));
+            System.out.println(JwtUtil.getUsername(cookie.getValue())+"通过认证");
             if (!result) {
                 ObjectMapper objectMapper = new ObjectMapper();
                 String msg=objectMapper.writeValueAsString(Msg.fail("账号认证失败，请重新登录"));
